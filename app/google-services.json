@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "548441769633",
+    "firebase_url": "https://autoinsurance-ddb3d.firebaseio.com",
+    "project_id": "autoinsurance-ddb3d",
+    "storage_bucket": "autoinsurance-ddb3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548441769633:android:4cecadc0308635ad",
+        "android_client_info": {
+          "package_name": "org.letmecode.autoinsurance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548441769633-8cvu4jn8bihld8a7for3hodsg7s6maho.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.letmecode.autoinsurance",
+            "certificate_hash": "73908be5a04e3721a1b6451d4189e2713fcd0499"
+          }
+        },
+        {
+          "client_id": "548441769633-j45ch0bme3586v98d48pnv96qrhm8bdv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcfAbvFGIt4dezYszjtlMZvGt9ZVj9NhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548441769633-j45ch0bme3586v98d48pnv96qrhm8bdv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

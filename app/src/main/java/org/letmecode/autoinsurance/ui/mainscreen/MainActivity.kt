@@ -1,7 +1,8 @@
-package org.letmecode.autoinsurance
+package org.letmecode.autoinsurance.ui.mainscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import org.letmecode.autoinsurance.R
 
 class MainActivity : AppCompatActivity() {
 

@@ -4,6 +4,12 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'androidx.navigation.safeargs'
+
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -13,22 +19,101 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi 28
+        renderscriptSupportModeEnabled true
     }
+
+    flavorDimensions "app"
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
+
 }
 
 dependencies {
+
+    // Basic and Google support libraries
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    // Test libraries
+    testImplementation "junit:junit:4.12"
+    androidTestImplementation "androidx.test:runner:$android_test_runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$android_test_espresso_version"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
+
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+
+    // Google Gson (JSON parser library)
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions_version"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    // Epoxy
+    implementation "com.airbnb.android:epoxy:$epoxy_version"
+    kapt "com.airbnb.android:epoxy-processor:$epoxy_version"
+
+    // RxPermissions
+    implementation "com.tbruyelle.rxpermissions2:rxpermissions:$rxpermissions_version"
+
+    // Joda Time
+    implementation "net.danlew:android.joda:$joda_version"
+
+    // Firebase Core
+    implementation "com.google.firebase:firebase-core:$firebase_core_version"
+
+    // Firebase Realtime Database
+    implementation "com.google.firebase:firebase-database:$firebase_realtime_database_version"
+
+    // RxFirebase
+    implementation "com.github.FrangSierra:RxFirebase:$rxfirebase_version"
+
+    // Navigation Controller
+    implementation "android.arch.navigation:navigation-ui:$nav_controller_version"
+    implementation "android.arch.navigation:navigation-fragment:$nav_controller_version"
+
+    // CardView
+    implementation "com.android.support:cardview-v7:$support_version"
+
+    // Circle ImageView
+    implementation "de.hdodenhof:circleimageview:$circle_imageview_version"
+
+    // Support design
+    implementation "com.android.support:design:$support_version"
+
+    // Google material
+    implementation "com.google.android.material:material:$google_material_version"
+
+    // RealtimeBlurView
+    implementation "com.github.mmin18:realtimeblurview:$realtime_blur_view_version"
+
+    // Firebase Auth
+    implementation "com.google.firebase:firebase-auth:$firebase_auth_version"
+    implementation "com.firebaseui:firebase-ui-auth:$firebase_auth_ui_version"
+
+    // Firebase Storage
+    implementation "com.google.firebase:firebase-storage:$firebase_storage_version"
 }

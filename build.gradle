@@ -2,16 +2,44 @@
 
 buildscript {
     ext.kotlin_version = '1.3.31'
+    ext.gradle_version = '3.4.0'
+    ext.google_services_version = '4.2.0'
+
+    ext.glide_version = '4.9.0'
+    ext.retrofit2_version = '2.5.0'
+    ext.rxjava_version = '2.2.6'
+    ext.rxandroid_version = '2.1.1'
+    ext.gson_version = '2.8.5'
+    ext.lifecycle_version = '2.0.0-beta01'
+    ext.lifecycle_extensions_version = '2.1.0-alpha04'
+    ext.epoxy_version = '3.3.0'
+    ext.rxpermissions_version = '0.9.5@aar'
+    ext.joda_version = '2.10.1.1'
+    ext.firebase_realtime_database_version = '16.1.0'
+    ext.firebase_core_version = '16.0.8'
+    ext.rxfirebase_version = '1.5.6'
+    ext.nav_controller_version = '1.0.0'
+    ext.support_version = '28.0.0'
+    ext.circle_imageview_version = '3.0.0'
+    ext.google_material_version = '1.0.0'
+    ext.realtime_blur_view_version = '1.1.2'
+    ext.google_translate_version = '1.66.0'
+    ext.firebase_auth_version = '16.2.1'
+    ext.firebase_auth_ui_version = '4.3.2'
+    ext.firebase_storage_version = '16.1.0'
+    ext.android_test_espresso_version = '3.2.0-alpha03'
+    ext.android_test_runner_version = '1.2.0-alpha03'
+
     repositories {
         google()
         jcenter()
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath "com.android.tools.build:gradle:$gradle_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath "com.google.gms:google-services:$google_services_version"
+        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:$nav_controller_version"
     }
 }
 
@@ -19,7 +47,8 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven { url "https://jitpack.io" }
+        maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
     }
 }
 
