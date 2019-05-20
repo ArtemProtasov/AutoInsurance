@@ -1,5 +1,6 @@
 package org.letmecode.autoinsurance.ui.ordersscreen
 
+import org.letmecode.autoinsurance.R
 import org.letmecode.autoinsurance.base.BaseFragment
 
 /**
@@ -8,7 +9,7 @@ import org.letmecode.autoinsurance.base.BaseFragment
 class OrdersFragment : BaseFragment() {
 
     override fun contentResource(): Int {
-        return 0
+        return R.layout.fragment_my_policy
     }
 
     override fun setupView() {

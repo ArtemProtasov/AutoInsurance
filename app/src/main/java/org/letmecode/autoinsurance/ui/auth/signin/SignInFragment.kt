@@ -36,7 +36,7 @@ class SignInFragment : BaseFragment() {
                     requireActivity()
                 ) {
                     if (it.isSuccessful) {
-                        navController.navigate(R.id.action_signInFragment2_to_mainActivity)
+                        navController.navigate(R.id.action_signInFragment_to_userActivity)
                     } else {
                         inputPassword.text.clear()
                         Snackbar.make(rootView, it.exception?.localizedMessage.toString(), Snackbar.LENGTH_LONG).show()
@@ -85,7 +85,7 @@ class SignInFragment : BaseFragment() {
         super.onStart()
         if (firebaseAuth?.currentUser != null) {
             firebaseAuth?.updateCurrentUser(firebaseAuth?.currentUser!!)
-            navController.navigate(R.id.action_signInFragment2_to_mainActivity)
+            navController.navigate(R.id.action_signInFragment_to_userActivity)
         }
     }
 

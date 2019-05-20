@@ -133,7 +133,7 @@ class SignUpFragment : BaseFragment() {
     private fun observerAddUserType(): Observer<in Boolean?> {
         return Observer {
             if (it!!) {
-                navController.navigate(R.id.action_signUpFragment_to_mainActivity)
+                navController.navigate(R.id.action_signUpFragment_to_userActivity)
             }
         }
     }

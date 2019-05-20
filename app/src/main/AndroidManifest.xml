@@ -20,9 +20,14 @@
             <nav-graph android:value="@navigation/auth_graph"/>
         </activity>
 
-        <activity android:name=".ui.mainscreen.MainActivity"
+        <activity android:name=".ui.userscreen.UserActivity"
                   android:screenOrientation="portrait">
-            <nav-graph android:value="@navigation/main_graph"/>
+            <nav-graph android:value="@navigation/user_graph"/>
+        </activity>
+
+        <activity android:name=".ui.managerscreen.ManagerActivity"
+                  android:screenOrientation="portrait">
+            <nav-graph android:value="@navigation/manager_graph"/>
         </activity>
     </application>
 
