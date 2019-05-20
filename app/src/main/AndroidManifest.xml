@@ -10,12 +10,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.MaterialComponents" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.mainscreen.MainActivity">
+        <activity android:name=".ui.auth.AuthActivity"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <nav-graph android:value="@navigation/auth_graph"/>
+        </activity>
+
+        <activity android:name=".ui.mainscreen.MainActivity"
+                  android:screenOrientation="portrait">
+            <nav-graph android:value="@navigation/main_graph"/>
         </activity>
     </application>
 

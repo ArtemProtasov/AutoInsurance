@@ -1,14 +1,16 @@
 package org.letmecode.autoinsurance.ui.mainscreen
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import org.letmecode.autoinsurance.R
+import org.letmecode.autoinsurance.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        //Check github
+    override fun contentResource(): Int {
+        return R.layout.activity_main
     }
+
+    override fun setupView() {
+
+    }
+
 }
