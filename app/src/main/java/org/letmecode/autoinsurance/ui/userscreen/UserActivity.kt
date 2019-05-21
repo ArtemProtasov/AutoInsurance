@@ -22,15 +22,15 @@ class UserActivity : BaseActivity() {
         bottomNavView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.myPolicy -> {
-                    println(1111)
+                    navController.navigate(R.id.myPolicyFragment)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.newPolicy -> {
-                    println(2222)
+                    navController.navigate(R.id.newPolicyFragment)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.appSettings -> {
-                    println(3333)
+                    navController.navigate(R.id.settingsFragment)
                     return@OnNavigationItemSelectedListener true
                 }
             }

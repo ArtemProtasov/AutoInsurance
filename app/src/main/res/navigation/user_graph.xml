@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/user_graph" app:startDestination="@id/ordersFragment">
+            android:id="@+id/user_graph" app:startDestination="@id/myPolicyFragment">
 
-    <fragment android:id="@+id/ordersFragment" android:name="org.letmecode.autoinsurance.ui.ordersscreen.OrdersFragment"
-              android:label="OrdersFragment"/>
+    <fragment android:id="@+id/settingsFragment"
+              android:name="org.letmecode.autoinsurance.ui.settingsscreen.SettingsFragment"
+              android:label="SettingsFragment">
+        <action android:id="@+id/action_settingsFragment_to_authActivity" app:destination="@id/authActivity"/>
+    </fragment>
+    <activity android:id="@+id/authActivity" android:name="org.letmecode.autoinsurance.ui.auth.AuthActivity"
+              android:label="AuthActivity"/>
+    <fragment android:id="@+id/myPolicyFragment" android:name="org.letmecode.autoinsurance.ui.mypolicy.MyPolicyFragment"
+              android:label="MyPolicyFragment"/>
+    <fragment android:id="@+id/newPolicyFragment"
+              android:name="org.letmecode.autoinsurance.ui.newpolicy.NewPolicyFragment"
+              android:label="NewPolicyFragment"/>
 </navigation>

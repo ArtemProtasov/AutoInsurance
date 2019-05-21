@@ -6,4 +6,7 @@
         <item>Менеджер</item>
     </string-array>
 
+    <string name="button_ok">OK</string>
+    <string name="button_cancel">Отмена</string>
+
 </resources>
