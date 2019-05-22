@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Марка авто" />
+
+        <EditText
+            android:id="@+id/editTextAutoBrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="BMW" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Модель авто" />
+
+        <EditText
+            android:id="@+id/editTextAutoModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="X6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Тип идентификационного номера" />
+
+        <Spinner
+            android:id="@+id/spinnerAutoIDType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/auto_id_type" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Идентификационный номер" />
+
+        <EditText
+            android:id="@+id/editTextAutoIDNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="4USBT53544LT26841" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Государственный регистрационный знак" />
+
+        <EditText
+            android:id="@+id/editTextAutoRegNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:hint="а000аа161 (если нет, оставьте пустым)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Год выпуска" />
+
+        <Spinner
+            android:id="@+id/spinnerYearOfIssue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/auto_vehicle_year" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Мощность, л.с." />
+
+        <EditText
+            android:id="@+id/editTextAutoPower"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:hint="123" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Цель использования" />
+
+        <Spinner
+            android:id="@+id/spinnerAutoPurposeOfUsing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/purpose_of_using_auto" />
+
+        <Button
+            android:id="@+id/nextAutoInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Продолжить" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

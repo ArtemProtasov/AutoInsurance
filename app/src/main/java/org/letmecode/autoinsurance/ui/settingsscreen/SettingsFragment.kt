@@ -1,7 +1,6 @@
 package org.letmecode.autoinsurance.ui.settingsscreen
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.text.TextUtils
@@ -13,6 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.auth.AuthUI
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
@@ -92,7 +92,7 @@ class SettingsFragment : BaseFragment() {
 
         changeNameButton.setOnClickListener {
             val view = layoutInflater.inflate(R.layout.alert_dialog_change_name, null)
-            AlertDialog.Builder(activity)
+            MaterialAlertDialogBuilder(activity)
                 .setView(view)
                 .setPositiveButton(getString(R.string.button_ok)) { _, _ ->
                     viewModel?.changeUserName(
@@ -108,7 +108,7 @@ class SettingsFragment : BaseFragment() {
 
         changePasswordButton.setOnClickListener {
             val view = layoutInflater.inflate(R.layout.alert_dialog_change_password, null)
-            AlertDialog.Builder(activity)
+            MaterialAlertDialogBuilder(activity)
                 .setView(view)
                 .setPositiveButton(getString(R.string.button_ok)) { _, _ ->
                     val oldPassword = view.findViewById<EditText>(R.id.inputOldPassword).text.toString()

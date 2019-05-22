@@ -14,5 +14,25 @@
               android:label="MyPolicyFragment"/>
     <fragment android:id="@+id/newPolicyFragment"
               android:name="org.letmecode.autoinsurance.ui.newpolicy.NewPolicyFragment"
-              android:label="NewPolicyFragment"/>
+              android:label="NewPolicyFragment">
+        <action
+            android:id="@+id/action_newPolicyFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="org.letmecode.autoinsurance.ui.newpolicy.successscreen.SuccessFragment"
+        android:label="SuccessFragment" >
+        <action
+            android:id="@+id/action_successFragment_to_newPolicyFragment"
+            app:destination="@id/newPolicyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 </navigation>

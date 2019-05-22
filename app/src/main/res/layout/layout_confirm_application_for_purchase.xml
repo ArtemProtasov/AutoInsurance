@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:text="Заявление на покупку E-ОСАГО"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Оплатите заявку до даты начала действия полиса, иначе заявка анулируется." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_check_green"
+            android:drawablePadding="16dp"
+            android:layout_margin="16dp"
+            android:text="Данные страхователя"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_check_green"
+            android:drawablePadding="16dp"
+            android:layout_margin="16dp"
+            android:text="Данные собственника ТС"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_check_green"
+            android:drawablePadding="16dp"
+            android:layout_margin="16dp"
+            android:text="Информация о ТС"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_check_green"
+            android:drawablePadding="16dp"
+            android:layout_margin="16dp"
+            android:text="Полис"/>
+
+        <CheckBox
+            android:id="@+id/checkboxConfirmCorrectData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Я подтверждаю корректность указанных данных"/>
+
+        <CheckBox
+            android:id="@+id/checkboxConfirmRule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="С правилами страхования ознакомлен, согласен, экземпляр правил получил"/>
+
+        <Button
+            android:id="@+id/doneConfirmAppForPurchase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Готово" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

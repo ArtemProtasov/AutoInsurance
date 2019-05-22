@@ -21,7 +21,7 @@ buildscript {
     ext.nav_controller_version = '1.0.0'
     ext.support_version = '28.0.0'
     ext.circle_imageview_version = '3.0.0'
-    ext.google_material_version = '1.0.0'
+    ext.google_material_version = '1.1.0-alpha02'
     ext.realtime_blur_view_version = '1.1.2'
     ext.google_translate_version = '1.66.0'
     ext.firebase_auth_version = '17.0.0'

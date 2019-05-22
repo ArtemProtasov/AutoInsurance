@@ -50,7 +50,7 @@ abstract class BaseFragment : Fragment() {
 
     protected fun observerErrorLoading(): Observer<in Throwable?> {
         return Observer {
-            Toast.makeText(context, "Observer error", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, it?.message, Toast.LENGTH_SHORT).show()
         }
     }
 

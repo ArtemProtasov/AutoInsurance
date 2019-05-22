@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Документ, удостоверяющий личность"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <Spinner
+            android:id="@+id/spinnerDocumentType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/document_type" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Фамилия"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/editTextSurname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Иванов" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Имя"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/editTextFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Иван" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Отчество"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/editTextPatronymic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Иванович" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Дата рождения"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="6">
+
+            <EditText
+                android:id="@+id/editTextDateOfBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:hint="01.01.1970"
+                android:maxLength="10" />
+
+            <ImageButton
+                android:id="@+id/imageButtonOpenCalendarForDateOfBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_calendar" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Пол"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonMan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Мужской" />
+
+            <RadioButton
+                android:id="@+id/radioButtonWoman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Женский" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Серия документа"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/editTextDocumentSeries"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0123" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Номер документа"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/editTextDocumentNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="456789" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Дата выдачи"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="6">
+
+            <EditText
+                android:id="@+id/editTextDateOfIssue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:hint="01.01.1970"
+                android:maxLength="10" />
+
+            <ImageButton
+                android:id="@+id/imageButtonOpenCalendarForDateOfIssue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_calendar" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Кем выдан"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Заполните точно как в документе, включая заглавные буквы и сокращения"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/editTextDocumentIssuedBy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Отделом УФМС по Ростовской области в г. Таганроге"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:scrollbars="vertical" />
+
+        <Button
+            android:id="@+id/nextPersonalInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Продолжить" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
