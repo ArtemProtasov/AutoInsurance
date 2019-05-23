@@ -1,0 +1,31 @@
+package org.letmecode.autoinsurance.type
+
+enum class PolicyFields(val field: String) {
+    approval("approval"),
+    autoBrand("autoBrand"),
+    autoDateDiagnosticCardOfIssue("autoDateDiagnosticCardOfIssue"),
+    autoDateDiagnosticCardValidUntil("autoDateDiagnosticCardValidUntil"),
+    autoDocumentNumber("autoDocumentNumber"),
+    autoDocumentSeries("autoDocumentSeries"),
+    autoDocumentType("autoDocumentType"),
+    autoIDNumber("autoIDNumber"),
+    autoIDNumberType("autoIDNumberType"),
+    autoModel("autoModel"),
+    autoNumberOfDiagnosticCard("autoNumberOfDiagnosticCard"),
+    autoPower("autoPower"),
+    autoPurposeOfUsing("autoPurposeOfUsing"),
+    autoRegNumber("autoRegNumber"),
+    autoYearOfIssue("autoYearOfIssue"),
+    dateOfBirth("dateOfBirth"),
+    documentDateOfIssue("documentDateOfIssue"),
+    documentIssueBy("documentIssueBy"),
+    documentNumber("documentNumber"),
+    documentSeries("documentSeries"),
+    documentType("documentType"),
+    firstName("firstName"),
+    gender("gender"),
+    patronymic("patronymic"),
+    placeOfResidence("placeOfResidence"),
+    policyID("policyID"),
+    surname("surname")
+}

@@ -22,7 +22,9 @@ import kotlinx.android.synthetic.main.layout_policy_information.*
 import org.letmecode.autoinsurance.R
 import org.letmecode.autoinsurance.base.BaseFragment
 import org.letmecode.autoinsurance.data.Policy
+import java.text.SimpleDateFormat
 import java.util.*
+
 
 class NewPolicyFragment : BaseFragment() {
 
@@ -238,6 +240,8 @@ class NewPolicyFragment : BaseFragment() {
     }
 
     private fun createPolicyObject(): Policy {
+        val date = Calendar.getInstance().time
+        val simpleDateFormat = SimpleDateFormat("dd-MMM-yyyy")
         val gender = if (radioButtonMan.isChecked) {
             "Мужчина"
         } else {
@@ -295,7 +299,8 @@ class NewPolicyFragment : BaseFragment() {
                 numberOfDiagnosticCard.toString(),
                 dateDiagnosticCardOfIssue.toString(),
                 dateDiagnosticCardValidUntil.toString(),
-                "false")
+                "false",
+                simpleDateFormat.format(date))
     }
 
     private fun clearAllFields() {
