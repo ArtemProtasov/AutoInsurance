@@ -50,7 +50,8 @@ class MyPolicyViewModel : BaseViewModel() {
                             itHashMap[PolicyFields.approval.field].toString(),
                             itHashMap[PolicyFields.date.field].toString(),
                             itHashMap[PolicyFields.userUID.field].toString(),
-                            itHashMap[PolicyFields.price.field].toString())
+                            itHashMap[PolicyFields.price.field].toString(),
+                            itHashMap[PolicyFields.officeAddress.field].toString())
                 }))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

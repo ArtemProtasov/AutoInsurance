@@ -93,6 +93,12 @@
         <item>Экстренные и коммунальные службы</item>
         <item>Прочие</item>
     </string-array>
+
+    <string-array name="office_address">
+        <item>г. Таганрог, ул. Чехова, д. 1</item>
+        <item>г. Таганрог, ул. Ленина, д. 2, оф. 3</item>
+        <item>г. Таганрог, ул. Дзержинского, д. 15</item>
+    </string-array>
     
     <string name="button_ok">OK</string>
     <string name="button_cancel">Отмена</string>

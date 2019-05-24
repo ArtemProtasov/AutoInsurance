@@ -482,9 +482,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:textStyle="bold"
                 android:hint="Введите сумму для оплаты"
+                android:textStyle="bold"
                 tools:text="15 000 руб" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Офис:"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+            <Spinner
+                android:id="@+id/spinnerOfficeAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:entries="@array/office_address" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -492,8 +506,8 @@
                 android:weightSum="2">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    style="@style/ButtonStyleRed"
                     android:id="@+id/buttonReject"
+                    style="@style/ButtonStyleRed"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -501,8 +515,8 @@
                     android:text="Отклонить" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    style="@style/ButtonStyleGreen"
                     android:id="@+id/buttonAccept"
+                    style="@style/ButtonStyleGreen"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"

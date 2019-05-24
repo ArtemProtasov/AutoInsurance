@@ -39,6 +39,11 @@ abstract class PolicyModel : EpoxyModelWithHolder<Holder>() {
         holder.textViewAutoRegNumber.text = policy?.autoRegNumber
         holder.textViewAutoPurposeOfUsing.text = policy?.autoPurposeOfUsing
         holder.textViewAutoPower.text = policy?.autoPower
+        holder.textViewOfficeAddress.text = if (policy?.officeAddress?.isNotEmpty()!!) {
+            policy?.officeAddress
+        } else {
+            "На рассмотрении"
+        }
         holder.textViewPrice.text = if (policy?.price?.isNotEmpty()!!) {
             "${policy?.price} руб"
         } else {
@@ -49,7 +54,6 @@ abstract class PolicyModel : EpoxyModelWithHolder<Holder>() {
             myPolicyListener?.onClickPolicy(policy!!)
         }
     }
-
 
 }
 
@@ -63,6 +67,7 @@ class Holder : EpoxyHolder() {
     lateinit var textViewAutoRegNumber: TextView
     lateinit var textViewAutoPurposeOfUsing: TextView
     lateinit var textViewAutoPower: TextView
+    lateinit var textViewOfficeAddress: TextView
     lateinit var textViewPrice: TextView
 
     lateinit var buttonShowOrder: Button
@@ -76,6 +81,7 @@ class Holder : EpoxyHolder() {
         textViewAutoRegNumber = itemView.textViewAutoRegNumber
         textViewAutoPurposeOfUsing = itemView.textViewAutoPurposeOfUsing
         textViewAutoPower = itemView.textViewAutoPower
+        textViewOfficeAddress = itemView.textViewOfficeAddress
         textViewPrice = itemView.textViewPrice
 
         buttonShowOrder = itemView.buttonShowOrder

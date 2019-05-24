@@ -30,5 +30,6 @@ enum class PolicyFields(val field: String) {
     surname("surname"),
     date("date"),
     userUID("userUID"),
-    price("price")
+    price("price"),
+    officeAddress("officeAddress")
 }

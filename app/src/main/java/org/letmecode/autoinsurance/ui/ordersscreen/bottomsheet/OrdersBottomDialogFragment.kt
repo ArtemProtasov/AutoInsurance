@@ -79,14 +79,25 @@ class OrdersBottomDialogFragment : BaseBottomSheetDialogFragment() {
 
         buttonReject.setOnClickListener {
             policy?.let {
-                viewModel.requestDataChange(databaseReference, it.userUID, it.policyID, "policy", PolicyFields.approval.field, "cancel", PolicyFields.price.field, "0", this)
+                viewModel.requestDataChange(databaseReference, it.userUID, it.policyID, "policy", PolicyFields.approval.field, "cancel", PolicyFields.price.field, "0", PolicyFields.officeAddress.field, "N/A", this)
             }
         }
 
         buttonAccept.setOnClickListener {
             policy?.let {
                 if (editTextPrice.text.isNotEmpty()) {
-                    viewModel.requestDataChange(databaseReference, it.userUID, it.policyID, "policy", PolicyFields.approval.field, "true", PolicyFields.price.field, editTextPrice.text.toString(), this)
+                    viewModel.requestDataChange(
+                            databaseReference,
+                            it.userUID,
+                            it.policyID,
+                            "policy",
+                            PolicyFields.approval.field,
+                            "true",
+                            PolicyFields.price.field,
+                            editTextPrice.text.toString(),
+                            PolicyFields.officeAddress.field,
+                            spinnerOfficeAddress.selectedItem.toString(),
+                            this)
                 } else {
                     editTextPrice.error = "Пожалуйста, введите сумму для оплаты"
                 }
