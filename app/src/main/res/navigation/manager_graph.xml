@@ -4,5 +4,50 @@
             android:id="@+id/manager_graph" app:startDestination="@id/ordersFragment2">
 
     <fragment android:id="@+id/ordersFragment2"
-              android:name="org.letmecode.autoinsurance.ui.ordersscreen.OrdersFragment" android:label="OrdersFragment"/>
+              android:name="org.letmecode.autoinsurance.ui.ordersscreen.OrdersFragment" android:label="OrdersFragment">
+        <argument
+            android:name="userType"
+            app:argType="string"
+            android:defaultValue="Менеджер" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="org.letmecode.autoinsurance.ui.settingsscreen.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment2_to_authActivity2"
+            app:destination="@id/authActivity"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="userType"
+            app:argType="string"
+            android:defaultValue="Менеджер" />
+    </fragment>
+    <activity
+        android:id="@+id/authActivity"
+        android:name="org.letmecode.autoinsurance.ui.auth.AuthActivity"
+        android:label="AuthActivity" />
+    <fragment
+        android:id="@+id/newPolicyFragment2"
+        android:name="org.letmecode.autoinsurance.ui.newpolicy.NewPolicyFragment"
+        android:label="NewPolicyFragment" >
+        <action
+            android:id="@+id/action_newPolicyFragment_to_successFragment2"
+            app:destination="@id/successFragment" />
+        <argument
+            android:name="userType"
+            app:argType="string"
+            android:defaultValue="Менеджер" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="org.letmecode.autoinsurance.ui.newpolicy.successscreen.SuccessFragment"
+        android:label="SuccessFragment" >
+        <action
+            android:id="@+id/action_successFragment2_to_newPolicyFragment"
+            app:destination="@id/newPolicyFragment2" />
+    </fragment>
 </navigation>

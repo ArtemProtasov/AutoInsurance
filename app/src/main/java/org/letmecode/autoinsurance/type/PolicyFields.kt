@@ -27,5 +27,8 @@ enum class PolicyFields(val field: String) {
     patronymic("patronymic"),
     placeOfResidence("placeOfResidence"),
     policyID("policyID"),
-    surname("surname")
+    surname("surname"),
+    date("date"),
+    userUID("userUID"),
+    price("price")
 }

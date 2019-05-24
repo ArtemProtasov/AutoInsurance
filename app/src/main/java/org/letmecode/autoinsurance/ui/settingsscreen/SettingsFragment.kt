@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.progress_layout.*
 import org.letmecode.autoinsurance.R
 import org.letmecode.autoinsurance.base.BaseFragment
 import org.letmecode.autoinsurance.base.GlideApp
+import org.letmecode.autoinsurance.type.UserType
 
 /**
  * Created by Artem Protasov (zippe.inc@gmail.com) on [14-05-2019].
@@ -59,8 +60,14 @@ class SettingsFragment : BaseFragment() {
     }
 
     override fun setupView() {
-        navController = Navigation.findNavController(requireActivity(), R.id.navHostFragmentUser)
 
+        arguments?.let {
+            navController = if(it.getString("userType") == UserType.USER.userType) {
+                Navigation.findNavController(requireActivity(), R.id.navHostFragmentUser)
+            } else {
+                Navigation.findNavController(requireActivity(), R.id.navHostFragmentManager)
+            }
+        }
         GlideApp.with(this)
             .load("")
             .centerCrop()
@@ -152,8 +159,13 @@ class SettingsFragment : BaseFragment() {
 
     private fun observerLogOut(): Observer<in Boolean?> {
         return Observer {
-            navController.navigate(R.id.action_settingsFragment_to_authActivity)
-        }
+            arguments?.let {
+                if(it.getString("userType") == UserType.USER.userType) {
+                    navController.navigate(R.id.action_settingsFragment_to_authActivity)
+                } else {
+                    navController.navigate(R.id.action_settingsFragment2_to_authActivity2)
+                }
+            } }
     }
 
     private fun observerChangeDisplayName(): Observer<in Boolean?> {

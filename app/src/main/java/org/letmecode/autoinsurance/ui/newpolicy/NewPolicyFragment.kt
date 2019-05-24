@@ -1,6 +1,8 @@
 package org.letmecode.autoinsurance.ui.newpolicy
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
+import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
@@ -22,8 +24,10 @@ import kotlinx.android.synthetic.main.layout_policy_information.*
 import org.letmecode.autoinsurance.R
 import org.letmecode.autoinsurance.base.BaseFragment
 import org.letmecode.autoinsurance.data.Policy
+import org.letmecode.autoinsurance.type.UserType
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 class NewPolicyFragment : BaseFragment() {
@@ -55,7 +59,13 @@ class NewPolicyFragment : BaseFragment() {
 
     override fun setupView() {
 
-        navController = Navigation.findNavController(requireActivity(), R.id.navHostFragmentUser)
+        arguments?.let {
+            navController = if (it.getString("userType") == UserType.USER.userType) {
+                Navigation.findNavController(requireActivity(), R.id.navHostFragmentUser)
+            } else {
+                Navigation.findNavController(requireActivity(), R.id.navHostFragmentManager)
+            }
+        }
 
         nextPersonalInformation.setOnClickListener {
             if (validatePersonalInformation()) {
@@ -125,6 +135,44 @@ class NewPolicyFragment : BaseFragment() {
             }
         }
 
+        imageButtonOpenCalendarForDateOfBirth.setOnClickListener {
+            openDatePickerDialog(editTextDateOfBirth, false)
+        }
+
+        imageButtonOpenCalendarForDateOfIssue.setOnClickListener {
+            openDatePickerDialog(editTextDateOfIssue, false)
+        }
+
+        imageButtonOpenCalendarForDateDiagnosticCardOfIssue.setOnClickListener {
+            openDatePickerDialog(editTextDateDiagnosticCardOfIssue, false)
+        }
+
+        imageButtonOpenCalendarForDateDiagnosticCardValidUntil.setOnClickListener {
+            openDatePickerDialog(editTextDateDiagnosticCardValidUntil, false)
+        }
+
+        imageButtonOpenCalendarForDateAutoDocumentDateOfIssue.setOnClickListener {
+            openDatePickerDialog(editTextAutoDocumentDateOfIssue, false)
+        }
+
+        imageButtonOpenCalendarForDateOfCommencementOfPolicy.setOnClickListener {
+            openDatePickerDialog(editTextDateOfCommencementOfPolicy, true)
+        }
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun openDatePickerDialog(dateField: EditText, minDate: Boolean) {
+        val calendar = Calendar.getInstance()
+        context?.let {
+            val datePickerDialog = DatePickerDialog(it, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                dateField.setText("$dayOfMonth.${monthOfYear + 1}.$year")
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+            if (minDate) {
+                datePickerDialog.datePicker.minDate = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(3)
+            }
+            datePickerDialog.show()
+        }
     }
 
     private fun showToast(message: String) {
@@ -300,7 +348,8 @@ class NewPolicyFragment : BaseFragment() {
                 dateDiagnosticCardOfIssue.toString(),
                 dateDiagnosticCardValidUntil.toString(),
                 "false",
-                simpleDateFormat.format(date))
+                simpleDateFormat.format(date),
+                firebaseAuth?.currentUser?.uid!!)
     }
 
     private fun clearAllFields() {
@@ -333,7 +382,9 @@ class NewPolicyFragment : BaseFragment() {
     private fun observerNewPolicyResponse(): Observer<in Policy?> {
         return Observer {
             clearAllFields()
-            navController.navigate(R.id.action_newPolicyFragment_to_successFragment)
+            arguments?.let {
+                navController.navigate(R.id.action_newPolicyFragment_to_successFragment, it)
+            }
         }
     }
 

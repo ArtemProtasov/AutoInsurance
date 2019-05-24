@@ -7,11 +7,20 @@
               android:name="org.letmecode.autoinsurance.ui.settingsscreen.SettingsFragment"
               android:label="SettingsFragment">
         <action android:id="@+id/action_settingsFragment_to_authActivity" app:destination="@id/authActivity"/>
+        <argument
+            android:name="userType"
+            app:argType="string"
+            android:defaultValue="Пользователь" />
     </fragment>
     <activity android:id="@+id/authActivity" android:name="org.letmecode.autoinsurance.ui.auth.AuthActivity"
               android:label="AuthActivity"/>
     <fragment android:id="@+id/myPolicyFragment" android:name="org.letmecode.autoinsurance.ui.mypolicy.MyPolicyFragment"
-              android:label="MyPolicyFragment"/>
+              android:label="MyPolicyFragment">
+        <argument
+            android:name="userType"
+            app:argType="string"
+            android:defaultValue="Пользователь" />
+    </fragment>
     <fragment android:id="@+id/newPolicyFragment"
               android:name="org.letmecode.autoinsurance.ui.newpolicy.NewPolicyFragment"
               android:label="NewPolicyFragment">
@@ -22,13 +31,16 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <argument android:name="userType"
+            app:argType="string"
+            android:defaultValue="Пользователь" />
     </fragment>
     <fragment
         android:id="@+id/successFragment"
         android:name="org.letmecode.autoinsurance.ui.newpolicy.successscreen.SuccessFragment"
         android:label="SuccessFragment" >
         <action
-            android:id="@+id/action_successFragment_to_newPolicyFragment"
+            android:id="@+id/action_successFragment_to_newPolicyFragment2"
             app:destination="@id/newPolicyFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"

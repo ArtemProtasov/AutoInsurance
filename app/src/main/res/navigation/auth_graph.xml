@@ -22,6 +22,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_signInFragment_to_managerActivity"
+            app:destination="@id/managerActivity"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:name="org.letmecode.autoinsurance.ui.auth.signup.SignUpFragment"
@@ -34,9 +41,20 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_signUpFragment_to_managerActivity"
+            app:destination="@id/managerActivity"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <activity
             android:id="@+id/userActivity"
             android:name="org.letmecode.autoinsurance.ui.userscreen.UserActivity"
             android:label="UserActivity"/>
+    <activity
+        android:id="@+id/managerActivity"
+        android:name="org.letmecode.autoinsurance.ui.managerscreen.ManagerActivity"
+        android:label="ManagerActivity" />
 </navigation>

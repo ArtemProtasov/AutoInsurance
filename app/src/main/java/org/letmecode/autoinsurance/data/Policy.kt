@@ -32,9 +32,13 @@ data class Policy(
         @SerializedName("autoDateDiagnosticCardOfIssue") val autoDateDiagnosticCardOfIssue: String = "",
         @SerializedName("autoDateDiagnosticCardValidUntil") val autoDateDiagnosticCardValidUntil: String = "",
         @SerializedName("approval") val approval: String = "",
-        @SerializedName("date") val date: String = ""
+        @SerializedName("date") val date: String = "",
+        @SerializedName("userUID") val userUID: String = "",
+        @SerializedName("price") val price: String = ""
 ) : Parcelable {
     constructor(source: Parcel) : this(
+            source.readString(),
+            source.readString(),
             source.readString(),
             source.readString(),
             source.readString(),
@@ -96,6 +100,8 @@ data class Policy(
         writeString(autoDateDiagnosticCardValidUntil)
         writeString(approval)
         writeString(date)
+        writeString(userUID)
+        writeString(price)
     }
 
     companion object {

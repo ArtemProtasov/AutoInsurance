@@ -1,11 +1,13 @@
 package org.letmecode.autoinsurance.ui.managerscreen
 
+import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_user.*
 import org.letmecode.autoinsurance.R
 import org.letmecode.autoinsurance.base.BaseActivity
+import org.letmecode.autoinsurance.type.UserType
 
 class ManagerActivity : BaseActivity() {
 
@@ -18,18 +20,21 @@ class ManagerActivity : BaseActivity() {
     override fun setupView() {
         navController = Navigation.findNavController(this, R.id.navHostFragmentManager)
 
+        val bundle = Bundle()
+        bundle.putString("userType", UserType.MANAGER.userType)
+
         bottomNavView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.allOrders -> {
-                    println(1111)
+                R.id.ordersFragment -> {
+                    navController.navigate(R.id.ordersFragment2, bundle)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.newPolicy -> {
-                    println(2222)
+                R.id.newPolicyFragment -> {
+                    navController.navigate(R.id.newPolicyFragment2, bundle)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.appSettings -> {
-                    println(3333)
+                R.id.settingsFragment -> {
+                    navController.navigate(R.id.settingsFragment2, bundle)
                     return@OnNavigationItemSelectedListener true
                 }
             }

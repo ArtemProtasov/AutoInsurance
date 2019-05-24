@@ -133,7 +133,12 @@ class SignUpFragment : BaseFragment() {
     private fun observerAddUserType(): Observer<in Boolean?> {
         return Observer {
             if (it!!) {
-                navController.navigate(R.id.action_signUpFragment_to_userActivity)
+
+                if(spinnerAccountType.selectedItem.toString() == UserType.USER.userType) {
+                    navController.navigate(R.id.action_signUpFragment_to_userActivity)
+                } else {
+                    navController.navigate(R.id.action_signUpFragment_to_managerActivity)
+                }
             }
         }
     }

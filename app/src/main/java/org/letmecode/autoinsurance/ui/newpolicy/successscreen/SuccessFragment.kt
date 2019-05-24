@@ -5,6 +5,7 @@ import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_success.*
 import org.letmecode.autoinsurance.R
 import org.letmecode.autoinsurance.base.BaseFragment
+import org.letmecode.autoinsurance.type.UserType
 
 class SuccessFragment : BaseFragment() {
 
@@ -16,10 +17,22 @@ class SuccessFragment : BaseFragment() {
 
     override fun setupView() {
 
-        navController = Navigation.findNavController(requireActivity(), R.id.navHostFragmentUser)
+        arguments?.let {
+            navController = if (it.getString("userType") == UserType.USER.userType) {
+                Navigation.findNavController(requireActivity(), R.id.navHostFragmentUser)
+            } else {
+                Navigation.findNavController(requireActivity(), R.id.navHostFragmentManager)
+            }
+        }
 
         buttonContinue.setOnClickListener {
-            navController.navigate(R.id.action_successFragment_to_newPolicyFragment)
+            arguments?.let {
+                if (it.getString("userType") == UserType.USER.userType) {
+                    navController.navigate(R.id.action_successFragment_to_newPolicyFragment2)
+                } else {
+                    navController.navigate(R.id.action_successFragment2_to_newPolicyFragment)
+                }
+            }
         }
     }
 

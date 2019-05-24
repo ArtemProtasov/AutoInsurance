@@ -17,4 +17,12 @@
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
+    <style name="ButtonStyleGreen" parent="android:style/Widget.Button">
+        <item name="android:background">@android:color/holo_green_light</item>
+    </style>
+
+    <style name="ButtonStyleRed" parent="android:style/Widget.Button">
+        <item name="android:background">@android:color/holo_red_light</item>
+    </style>
+
 </resources>

@@ -15,7 +15,6 @@ class AuthActivity : BaseActivity() {
 
     override fun setupView() {
         navController = Navigation.findNavController(this, R.id.navHostFragmentAuth)
-
     }
 
 }

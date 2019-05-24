@@ -13,12 +13,12 @@
         android:text="К сожалению, ничего не найдено..." />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefreshLayoutPolicy"
+        android:id="@+id/swipeRefreshLayoutOrders"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.airbnb.epoxy.EpoxyRecyclerView
-            android:id="@+id/epoxyRecyclerViewMyPolicy"
+            android:id="@+id/epoxyRecyclerViewOrders"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:itemCount="10"
-            tools:listitem="@layout/epoxy_my_policy" />
+            tools:listitem="@layout/epoxy_orders" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

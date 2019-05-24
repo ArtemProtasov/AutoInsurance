@@ -1,4 +1,4 @@
-package org.letmecode.autoinsurance.ui.mypolicy.model
+package org.letmecode.autoinsurance.ui.ordersscreen.model
 
 import android.annotation.SuppressLint
 import android.view.View
@@ -9,24 +9,22 @@ import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
-import kotlinx.android.synthetic.main.epoxy_my_policy.view.*
+import kotlinx.android.synthetic.main.epoxy_orders.view.*
 import org.letmecode.autoinsurance.R
 import org.letmecode.autoinsurance.data.Policy
-import org.letmecode.autoinsurance.ui.mypolicy.MyPolicyController
+import org.letmecode.autoinsurance.ui.ordersscreen.OrdersController
 
-@EpoxyModelClass(layout = R.layout.epoxy_my_policy)
-abstract class PolicyModel : EpoxyModelWithHolder<Holder>() {
+@EpoxyModelClass(layout = R.layout.epoxy_orders)
+abstract class OrdersModel : EpoxyModelWithHolder<Holder>() {
 
     @EpoxyAttribute
     var policy: Policy? = null
-
     @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
-    var myPolicyListener: MyPolicyController.MyPolicyListener? = null
+    var ordersListener: OrdersController.OrdersListener? = null
 
     @SuppressLint("SetTextI18n")
     override fun bind(holder: Holder) {
         super.bind(holder)
-
         when {
             policy?.approval == "true" -> holder.imageViewOrderApproved.setImageDrawable(holder.imageViewOrderApproved.context.getDrawable(R.drawable.ic_check_green))
             policy?.approval == "false" -> holder.imageViewOrderApproved.setImageDrawable(holder.imageViewOrderApproved.context.getDrawable(R.drawable.ic_check_red))
@@ -39,17 +37,12 @@ abstract class PolicyModel : EpoxyModelWithHolder<Holder>() {
         holder.textViewAutoRegNumber.text = policy?.autoRegNumber
         holder.textViewAutoPurposeOfUsing.text = policy?.autoPurposeOfUsing
         holder.textViewAutoPower.text = policy?.autoPower
-        holder.textViewPrice.text = if (policy?.price?.isNotEmpty()!!) {
-            "${policy?.price} руб"
-        } else {
-            "На рассмотрении..."
-        }
+        holder.textViewDate.text = policy?.date
 
         holder.buttonShowOrder.setOnClickListener {
-            myPolicyListener?.onClickPolicy(policy!!)
+            ordersListener?.onClickOrder(policy!!)
         }
     }
-
 
 }
 
@@ -63,7 +56,7 @@ class Holder : EpoxyHolder() {
     lateinit var textViewAutoRegNumber: TextView
     lateinit var textViewAutoPurposeOfUsing: TextView
     lateinit var textViewAutoPower: TextView
-    lateinit var textViewPrice: TextView
+    lateinit var textViewDate: TextView
 
     lateinit var buttonShowOrder: Button
 
@@ -76,7 +69,7 @@ class Holder : EpoxyHolder() {
         textViewAutoRegNumber = itemView.textViewAutoRegNumber
         textViewAutoPurposeOfUsing = itemView.textViewAutoPurposeOfUsing
         textViewAutoPower = itemView.textViewAutoPower
-        textViewPrice = itemView.textViewPrice
+        textViewDate = itemView.textViewDate
 
         buttonShowOrder = itemView.buttonShowOrder
     }

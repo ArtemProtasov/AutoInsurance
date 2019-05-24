@@ -1,19 +1,17 @@
 package org.letmecode.autoinsurance.ui.mypolicy
 
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import kotlinx.android.synthetic.main.fragment_my_policy.*
-import kotlinx.android.synthetic.main.progress_layout.*
 import org.letmecode.autoinsurance.R
 import org.letmecode.autoinsurance.base.BaseFragment
 import org.letmecode.autoinsurance.data.Policy
 import org.letmecode.autoinsurance.ui.mypolicy.bottomsheet.PolicyBottomDialogFragment
 
 
-class MyPolicyFragment : BaseFragment(), MyPolicyController.MyPolicyListener {
+class MyPolicyFragment : BaseFragment(), MyPolicyController.MyPolicyListener, SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var viewModel: MyPolicyViewModel
     private lateinit var controller: MyPolicyController
@@ -30,25 +28,24 @@ class MyPolicyFragment : BaseFragment(), MyPolicyController.MyPolicyListener {
         return firebaseDatabase.reference
     }
 
-    override fun getProgress(): View? {
-        return progressView
-    }
-
-    override fun getViewGroup(): ViewGroup? {
-        return rootView
-    }
-
     override fun setupViewModel() {
         super.setupViewModel()
         viewModel = getViewModel(this, MyPolicyViewModel::class.java)
 
         viewModel.policyListResponse.observe(this, observerPolicyList())
         viewModel.errorLoading.observe(this, observerErrorLoading())
-        viewModel.progressLoading.observe(this, observerProgressLoading())
     }
 
     override fun setupView() {
         setupController()
+
+        swipeRefreshLayoutPolicy.setOnRefreshListener(this)
+
+        swipeRefreshLayoutPolicy.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light)
+
 
         viewModel.requesPolicyList(databaseReference, firebaseAuth?.currentUser?.uid!!, "policy")
     }
@@ -62,12 +59,17 @@ class MyPolicyFragment : BaseFragment(), MyPolicyController.MyPolicyListener {
         return Observer { policyList ->
             policyList?.let {
                 controller.setupPolicyList(it)
+                swipeRefreshLayoutPolicy.isRefreshing = false
             }
         }
     }
 
     override fun onClickPolicy(policy: Policy) {
         setupAndShowBottomSheetDialog(policy)
+    }
+
+    override fun onRefresh() {
+        viewModel.requesPolicyList(databaseReference, firebaseAuth?.currentUser?.uid!!, "policy")
     }
 
     private fun setupAndShowBottomSheetDialog(policy: Policy) {

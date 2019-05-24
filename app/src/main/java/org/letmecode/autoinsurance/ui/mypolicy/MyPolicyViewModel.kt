@@ -47,14 +47,15 @@ class MyPolicyViewModel : BaseViewModel() {
                             itHashMap[PolicyFields.autoNumberOfDiagnosticCard.field].toString(),
                             itHashMap[PolicyFields.autoDateDiagnosticCardOfIssue.field].toString(),
                             itHashMap[PolicyFields.autoDateDiagnosticCardValidUntil.field].toString(),
-                            itHashMap[PolicyFields.approval.field].toString())
+                            itHashMap[PolicyFields.approval.field].toString(),
+                            itHashMap[PolicyFields.date.field].toString(),
+                            itHashMap[PolicyFields.userUID.field].toString(),
+                            itHashMap[PolicyFields.price.field].toString())
                 }))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe(progressLoadingCunsumer())
                 .subscribe(Consumer {
                     policyListResponse.postValue(it)
-                    terminateProgress().run()
                 }, errorLoadingConsumer()))
     }
 
